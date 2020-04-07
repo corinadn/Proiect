@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sunshine Tur</title>
+    <meta charset="utf-8" >
+    <link rel="icon" href="img/logo.png" type="image/x-icon" >
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Lato|Pathway+Gothic+One|Grand+Hotel|Berkshire+Swash" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css" >
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+</head>
+<body>
+    <header class="grid"> 
+        <div class="meniu" style="position: fixed;">
+            <input type="checkbox" id="menu-checkbox">
+            <nav role="navigation">
+                <label for="menu-checkbox" class="toggle-button" data-open="MENU" data-close="CLOSE" onclick></label>
+                <ul class="main-menu">
+                    <!---<li><div class="activ">Principal</div></li> --->
+                    <li><a href="#sprincipal">Principal</a></li>
+                    <li><a href="#segipt">Egipt</a></li>
+                    <li><a href="#sgrecia">Grecia</a></li>
+                    <li><a href="#sturcia">Turcia</a></li>
+                    <li><a href="#srecenzii">Recenzii</a></li>
+                    <li><a href="#scontacte">Contacte</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-container grid" id="sprincipal">
+            <div class="header-btns">
+                <a href="#" class="icon"> <img src="img/logo.png" width="410px" ></a> 
+            </div>
+            <h1>Sunshine Tur</h1>
+        </div>
+    </header>
+
+    <!--1 sectiune Info -->
+    <section class="section-ready landing-section">
+        <div class="container grid">
+            <div class="ready-left">
+                <h3>Sunshine Tur</h3> 
+                <p>oferte fierbinți spre cele mai populare direcții! <br>
+            </div>
+            <div class="ready-right">
+                <video  controls class="video-responsive">
+                    <source src="video/travel.mp4" type="video/mp4">
+                    <source src="video/travel.ogg" type="video/ogg">
+                    <source src="video/travel.webm" type="video/webm">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!--2 sectiune steps -->
+    <section class="grid steps-section">
+        <div class="grid steps-item" style="background-image: url(img/ROASTING.jpg)"><span>DOAR CU</span></div>
+        <div class="grid steps-item" style="background-image: url(img/BREWING.jpg)"><span>SUNSHINE</span></div>
+        <div class="grid steps-item" style="background-image: url(img/TASTING.jpg)"><span>TUR</span></div>
+    </section>
+
+
+    <!--3 sectiune egipt -->
+    <section class="grid egipt-section" id="segipt">
+        <h2 id="recenzii"> Egipt - țara soarelui </h2>
+        <div class="container grid">
+            <div class="ready-left">
+                <center> 
+                    <form> 
+                        Operatorul turistic:
+                        <select id="operator" name="operator">
+                            <option value="panda">Panda Tur</option>
+                            <option value="sunshine">Sunshine Tur</option>
+                            <option value="climal">My Climal Tur</option>
+                        </select><br>
+                        Hotelul:
+                        <select id="hotel" name="hotel">
+                            <option value="amwaj">AMWAJ OYOUN HOTEL& RESORT 5*</option>
+                            <option value="coral">CORAL BEACH RESORT TIRAN 4*</option>
+                            <option value="falcon">FALCON NAAMA STAR HOTEL 3*</option>
+                        </select><br>
+                        Tipul de transport:
+                        <select id="trans" name="transport">
+                            <option value="autocar">Autocar</option>
+                            <option value="avion">Avion</option>
+                        </select><br>
+                        Data inceperii turului:
+                        <input type="date" name="trip-start" id="data" value="2020-03-01" min="2020-03-01" max="2020-12-31"> <br>
+                        Numarul de nopti: 
+                        <input type="number" onkeypress="return isNumberKey(event)" id="nopti" min="1" value="1"> <br>
+                        Numarul persoanelor adulte: 
+                        <input type="number" onkeypress="return isNumberKey(event)" id="adulti" min="1" value="1"> <br> 
+                        Numarul copiilor: 
+                        <input type="number" onkeypress="return isNumberKey(event)" id="copii" min="0" value="0"> <br> 
+                        Varstele copiilor (prin virgula) 
+                        <input type="text"  id="myInput" onkeyup="checkInput(this)"><br> 
+                        Cod promotional: <input type="text"  id="myCod" onkeyup="checkInput2(this)"><br> <br>
+                    </form>
+                    <button id="calculateBut" onclick="getInputValue();" class="btn"> Pret </button>
+                    <span id="result">0</span> &#8364 </center>
+                </div>
+                <div class="ready-right">
+                    <img src="img/egipt.jpg" id="egiptimg">
+                </div>
+            </div>
+        </section>
+
+    <!--4 sectiune Grecia -->
+    <section class="grid grecia-section" id="sgrecia">
+        <h2 id="recenzii"> Grecia - țara  </h2>
+        <div class="container grid">
+            <div class="ready-left">
+                <h3>Pachet </h3> 
+            </div>
+            <div class="ready-right">
+                <img src="img/grecia.jpg" id="egiptimg">
+            </div>
+
+            
+        </div>
+    </section>
+
+        <!--5 sectiune Turcia -->
+    <section class="grid turcia-section" id="sturcia">
+        <h2 id="recenzii"> Turcia - țara  </h2>
+        <div class="container grid">
+            <div class="ready-left">
+                <!--- <h3>Pachet</h3>  -->
+                
+            </div>
+            <div class="ready-right">
+                <img src="img/turcia.jpg" id="egiptimg">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 sectiune favorite -->
+    <section class="landing-section section-favorites" id="srecenzii">
+        <h2 id="recenzii"> Păreri </h2>
+        <div class="container">
+            <div class="favorites-home grid">   
+                <a href="#" class="favorites-item grid">
+                    <span class="favorites-item-img" style="background-image:url(img/latte.jpg)" ></span>
+                    <span class="favorites-item-content grid">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. </p>
+                    </span>
+                </a>
+
+                <a href="#" class="favorites-item grid">
+                    <span class="favorites-item-img" style="background-image:url(img/mocha.jpg)"></span>
+                    <span class="favorites-item-content grid">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. </p>
+                    </span>
+                </a>
+
+                <a href="#" class="favorites-item grid">
+                    <span class="favorites-item-img" style="background-image:url(img/americano.jpg)"></span>
+                    <span class="favorites-item-content grid">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. </p>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid contacte-section" id="scontacte" style="padding-left: 30px; padding-right: 30px; text-align: center; font-size: 19px;">
+        <h2 id="recenzii"> Despre noi</h2>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam.</p>
+        <h4 style="font-size: 30px;"> Contacte: </h4>
+        <p> Număr de contact: +(373)68688618 <br> Adresa: str. Stefan cel Mare 77/2 <br> Facebook: <a href="https://www.facebook.com/">www.facebook.com</a>  <br> Instagram: <a href="https://www.instagram.com/">www.instagram.com</a></p>
+    </section>
+
+    <!-- 6 sectiune footer -->
+        <footer class="main-footer">
+        <div class="container">
+            <div class="footer-logo">
+                <span>
+                    <img src="img/logo.png" width="150px"><span>Sunshine Tur</span>
+                </span>
+            </div>
+            <div class="footer-copy">
+                <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" /></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" /></a>
+                <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" /></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>
