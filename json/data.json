@@ -1,0 +1,48 @@
+{
+  "operator1": [
+    {
+      "id": "1",
+      "name": "Panda Tur"
+
+    },
+    {
+      "id": "2",
+      "name": "Sunshine Tur"
+
+    },
+    {
+      "id": "3",
+      "name": "My Climal Tur"
+
+    }
+  ],
+  "hotel1": [
+    {
+      "id": "1",
+      "denumire": "AMWAJ OYOUN HOTEL& RESORT 5*",
+      "plus_pret": 50
+    },
+    {
+      "id": "2",
+      "denumire": "CORAL BEACH RESORT TIRAN 4*",
+      "plus_pret": 45
+    },
+    {
+      "id": "3",
+      "denumire": "FALCON NAAMA STAR HOTEL 3*",
+      "plus_pret": 40
+    }
+  ],
+  "transport1": [
+    {
+      "id": "1",
+      "tip": "autocar",
+      "plus_pret": 50
+    },
+    {
+      "id": "2",
+      "tip": "avion",
+      "plus_pret": 100
+    }
+  ]
+}

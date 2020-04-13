@@ -3,6 +3,31 @@ let pret = 10;
 let pretcop = 0;
 let pretad = 0;
 
+
+fetch('json/data.json')
+    .then(response => response.json())
+    .then(Data => {
+        loadOperator(Data.operator1);
+        // loadHotel(Data.hotel1);
+        // loadTransport(Data.transport1);
+        console.log(Data.operator1);
+    });
+
+
+const sel = document.getElementById('op');
+
+function loadOperator(operator1) {
+    for (let operator of operator1) {
+        var opt = document.createElement('option');
+        opt.appendChild( document.createTextNode(operator.name));
+        sel.appendChild(opt)
+    }
+}
+
+
+
+
+
 function checkInput(ob) {
     var invalidChars = /[^0-9-,]/gi
     if(invalidChars.test(ob.value)) {
@@ -29,35 +54,35 @@ function getInputValue() {
     } console.log(vector);
 
     function Data() {
-    	var str = document.getElementById('data').value; 
-		var res = str.split("-"); 
-		var months = ["Jan", "Feb", "March", "April", "May", "June", "July",
-		"August", "September", "October", "November", "December"];
-		var luna = months[res[1]-1];
-		if (luna == "June" || luna == "August" ) {
-			pret = pret + 5;
-		}
-		console.log(luna); 
+        var str = document.getElementById('data').value;
+        var res = str.split("-");
+        var months = ["Jan", "Feb", "March", "April", "May", "June", "July",
+            "August", "September", "October", "November", "December"];
+        var luna = months[res[1]-1];
+        if (luna == "June" || luna == "August" ) {
+            pret = pret + 5;
+        }
+        console.log(luna);
     } Data();
 
     function nrNopti() {
-    	const nr = Number(document.getElementById('nopti').value);
-    	pret = pret * nr;
+        const nr = Number(document.getElementById('nopti').value);
+        pret = pret * nr;
     } nrNopti();
 
     function virsteAdulti() {
-    	const n = Number(document.getElementById('adulti').value);
-    	pretad = pret * n;
+        const n = Number(document.getElementById('adulti').value);
+        pretad = pret * n;
     } virsteAdulti();
 
     function virsteCopii() {
         for (var i = 0; i < vector.length; i++) {
             if (vector[i] < 7) {
-            	pretcop = pretcop + 0;
+                pretcop = pretcop + 0;
             } else if (vector[i] >= 7 && vector[i] <= 12) {
-            	pretcop = pretcop + pret / 2;
+                pretcop = pretcop + pret / 2;
             } else {
-            	pretcop = pretcop + pret;
+                pretcop = pretcop + pret;
             }
         } console.log('pret pentru copii este: ' + pretcop);
     } virsteCopii();
@@ -65,7 +90,7 @@ function getInputValue() {
 }
 
 document.getElementById('calculateBut').addEventListener("click", function(){
-		document.getElementById('result').innerHTML = pretad + pretcop; 
+    document.getElementById('result').innerHTML = pretad + pretcop;
 }); 
 
 
