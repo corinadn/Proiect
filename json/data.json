@@ -1,4 +1,5 @@
 {
+  "base_price_egipt": 10,
   "operator1": [
     {
       "id": "1",
@@ -7,7 +8,7 @@
     },
     {
       "id": "2",
-      "name": "Sunshine Tur",
+      "name": "Sunshine Tur, *REDUCERE 5% ",
       "sale": 1
 
     },
@@ -20,30 +21,27 @@
   "hotel1": [
     {
       "id": "1",
-      "denumire": "AMWAJ OYOUN HOTEL& RESORT 5*",
+      "denumire": "AMWAJ OYOUN HOTEL& RESORT 5*, 50 euro",
       "plus_pret": 50
     },
     {
       "id": "2",
-      "denumire": "CORAL BEACH RESORT TIRAN 4*",
+      "denumire": "CORAL BEACH RESORT TIRAN 4*, 45 euro",
       "plus_pret": 45
     },
     {
       "id": "3",
-      "denumire": "FALCON NAAMA STAR HOTEL 3*",
+      "denumire": "FALCON NAAMA STAR HOTEL 3*, 40 euro",
       "plus_pret": 40
     }
   ],
   "transport1": [
     {
-      "id": "1",
-      "tip": "autocar",
-      "plus_pret": 50
-    },
-    {
       "id": "2",
-      "tip": "avion",
-      "plus_pret": 100
+      "tip": "Avion",
+      "plus_pret": 50
     }
-  ]
+  ],
+  "nights" : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 }

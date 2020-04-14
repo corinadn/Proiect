@@ -68,10 +68,10 @@
                     <form> 
                         Operatorul turistic:
 
-                        <select id="op" name="hotel">
+                        <select id="op" name="operator">
                         </select><br>
-
                         Hotelul:
+
                         <select id="ht" name="hotel">
                         </select> <br>
                         Tipul de transport:
@@ -79,18 +79,21 @@
                         </select><br>
                         Data inceperii turului:
                         <input type="date" name="trip-start" id="data" value="2020-03-01" min="2020-03-01" max="2020-12-31"> <br>
-                        Numarul de nopti: 
-                        <input type="number" onkeypress="return isNumberKey(event)" id="nopti" min="1" value="1"> <br>
+                        <p style="font-size: 15px; background: springgreen">*REDUCERE 2% pentru lunile iunie și iulie</p>
+                        Numarul de nopti:
+                        <!---<input type="number" onkeypress="return isNumberKey(event)" id="nopti" min="1" value="1"> <br> --->
+                        <select id="nopti"></select> <br>
                         Numarul persoanelor adulte: 
-                        <input type="number" onkeypress="return isNumberKey(event)" id="adulti" min="1" value="1"> <br> 
+                        <input type="number" onkeypress="return isNumberKey(event)" id="adulti" min="1" > <br>
                         Numarul copiilor: 
-                        <input type="number" onkeypress="return isNumberKey(event)" id="copii" min="0" value="0"> <br> 
+                        <input type="number" onkeypress="return isNumberKey(event)" id="copii" min="0" > <br>
                         Varstele copiilor (prin virgula) 
                         <input type="text"  id="myInput" onkeyup="checkInput(this)"><br> 
                         Cod promotional: <input type="text"  id="myCod" onkeyup="checkInput2(this)"><br> <br>
                     </form>
-                    <button id="calculateBut" onclick="getInputValue();" class="btn"> Pret </button>
-                    <span id="result">0</span> &#8364 </center>
+                    Prețul pachetului ales: <span style="background: azure; padding: 5px;"><span id="result">0</span> &#8364</span> <br>
+                    <a href="#scomanda"><button id="calculateBut" onclick="" class="btn"> Plasează comanda </button></a>
+                    </center>
                 </div>
                 <div class="ready-right">
                     <img src="img/egipt.jpg" id="egiptimg">
@@ -156,13 +159,24 @@
         </div>
     </section>
 
-    <section class="grid contacte-section" id="scontacte" style="padding-left: 30px; padding-right: 30px; text-align: center; font-size: 19px;">
+    <section class="grid contacte-section" id="scontacte" style="padding-left: 30px; padding-right: 30px; text-align: center; font-size: 19px; background: #2fb7e0">
         <h2 id="recenzii"> Despre noi</h2>
         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum mauris ut diam vulputate, nec scelerisque magna maximus. Suspendisse sit amet ex vestibulum, semper nunc quis, consequat arcu. Pellentesque feugiat molestie enim a aliquam.</p>
-        <h4 style="font-size: 30px;"> Contacte: </h4>
+        <h4 style="font-size: 30px; background-color: "> Contacte: </h4>
         <p> Număr de contact: +(373)68688618 <br> Adresa: str. Stefan cel Mare 77/2 <br> Facebook: <a href="https://www.facebook.com/">www.facebook.com</a>  <br> Instagram: <a href="https://www.instagram.com/">www.instagram.com</a></p>
     </section>
-
+    <section class="grid contacte-section" id="scomanda" style="padding-left: 30px; padding-right: 30px; padding-bottom: 30px; text-align: center; font-size: 19px;">
+        <h2 id="recenzii"> Plasează comanda: </h2>
+        <div id="comanda" style="padding-bottom: 30px">Deocamdată nu ați ales nici un pachet,
+            pentru a alege pachetul accesați secțiunea cu una din țări la dorință</div>
+        <form class="grid">
+            <div><input type="text" name="name" autocomplete="off" placeholder="Nume" value="" /></div>
+            <div><input type="tel" id="phone" name="phone" placeholder="+37312345678" pattern="[+]{1}[0-9]{11}" required></div>
+            <div><input type="email" name="name" autocomplete="off" value="" placeholder="Email" required  /></div>
+            <textarea name="message" rows="4" cols="5">Introdu comentarii</textarea>
+            <div><button class="btn ">Comandă!</button></div>
+        </form>
+    </section>
     <!-- 6 sectiune footer -->
         <footer class="main-footer">
         <div class="container">
