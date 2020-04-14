@@ -2,18 +2,19 @@
   "operator1": [
     {
       "id": "1",
-      "name": "Panda Tur"
-
+      "name": "Panda Tur",
+      "sale": 0
     },
     {
       "id": "2",
-      "name": "Sunshine Tur"
+      "name": "Sunshine Tur",
+      "sale": 1
 
     },
     {
       "id": "3",
-      "name": "My Climal Tur"
-
+      "name": "My Climal Tur",
+      "sale": 0
     }
   ],
   "hotel1": [

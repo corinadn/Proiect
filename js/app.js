@@ -8,23 +8,52 @@ fetch('json/data.json')
     .then(response => response.json())
     .then(Data => {
         loadOperator(Data.operator1);
-        // loadHotel(Data.hotel1);
-        // loadTransport(Data.transport1);
+        loadHotel(Data.hotel1);
+        loadTransport(Data.transport1);
         console.log(Data.operator1);
     });
 
 
 const sel = document.getElementById('op');
+const select = document.getElementById('ht');
+const selects = document.getElementById('trans');
+
 
 function loadOperator(operator1) {
     for (let operator of operator1) {
         var opt = document.createElement('option');
         opt.appendChild( document.createTextNode(operator.name));
+        opt.value = operator.sale;
         sel.appendChild(opt)
     }
 }
+/*function loadOperator(operator1){
+    let selectElement = document.getElementById('op');
+    for (let i = 0 ; i < Data.operator1.length ; i++){
+        let optionElement = document.createElement('option');
+        optionElement.innerText = Data.operator1[i].name;
+        optionElement.value = Data.operator1[i].sale;
+        selectElement.appendChild(optionElement);
+    }
+}*/
 
+function loadHotel(hotel1) {
+    for (let hotel of hotel1) {
+        var opt = document.createElement('option');
+        opt.appendChild( document.createTextNode(hotel.denumire));
+        opt.value = hotel.plus_pret;
+        select.appendChild(opt)
+    }
+}
 
+function loadTransport(transport1) {
+    for (let transport of transport1) {
+        var opt = document.createElement('option');
+        opt.appendChild( document.createTextNode(transport.tip));
+        opt.value = transport.plus_pret;
+        selects.appendChild(opt)
+    }
+}
 
 
 
