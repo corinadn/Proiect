@@ -1,5 +1,5 @@
 {
-  "base_price_egipt": 10,
+  "base_price_egipt": 0,
   "operator1": [
     {
       "id": "1",
@@ -42,6 +42,6 @@
       "plus_pret": 50
     }
   ],
-  "nights" : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  "nights" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 }

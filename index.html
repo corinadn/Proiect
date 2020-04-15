@@ -66,10 +66,7 @@
             <div class="ready-left">
                 <center> 
                     <form> 
-                        Operatorul turistic:
 
-                        <select id="op" name="operator">
-                        </select><br>
                         Hotelul:
 
                         <select id="ht" name="hotel">
@@ -78,8 +75,8 @@
                         <select id="trans" name="transport">
                         </select><br>
                         Data inceperii turului:
-                        <input type="date" name="trip-start" id="data" value="2020-03-01" min="2020-03-01" max="2020-12-31"> <br>
-                        <p style="font-size: 15px; background: springgreen">*REDUCERE 2% pentru lunile iunie și iulie</p>
+                        <input type="date" name="trip-start" id="date" value="2020-03-01" min="2020-03-01" max="2020-12-31"> <br>
+                        <p style="font-size: 15px; background: springgreen">*REDUCERE 2% din prețul final pentru lunile iunie și iulie</p>
                         Numarul de nopti:
                         <!---<input type="number" onkeypress="return isNumberKey(event)" id="nopti" min="1" value="1"> <br> --->
                         <select id="nopti"></select> <br>
@@ -89,7 +86,11 @@
                         <input type="number" onkeypress="return isNumberKey(event)" id="copii" min="0" > <br>
                         Varstele copiilor (prin virgula) 
                         <input type="text"  id="myInput" onkeyup="checkInput(this)"><br> 
-                        Cod promotional: <input type="text"  id="myCod" onkeyup="checkInput2(this)"><br> <br>
+                        Cod promotional: <input type="text"  id="myCod" onkeyup="checkInput2(this)"><br>
+                        Operatorul turistic:
+
+                        <select id="op" name="operator">
+                        </select>
                     </form>
                     Prețul pachetului ales: <span style="background: azure; padding: 5px;"><span id="result">0</span> &#8364</span> <br>
                     <a href="#scomanda"><button id="calculateBut" onclick="" class="btn"> Plasează comanda </button></a>
@@ -169,12 +170,21 @@
         <h2 id="recenzii"> Plasează comanda: </h2>
         <div id="comanda" style="padding-bottom: 30px">Deocamdată nu ați ales nici un pachet,
             pentru a alege pachetul accesați secțiunea cu una din țări la dorință</div>
-        <form class="grid">
-            <div><input type="text" name="name" autocomplete="off" placeholder="Nume" value="" /></div>
+        <div class="alert"></div>
+        <form id="save-later-form">
+            <label>Introdu numele și prenumele:</label>
+            <div><input type="text" id="full-name" name="name" autocomplete="off" placeholder="Nume & Prenume" value="" /></div>
+            <label>Introdu numărul de telefon:</label>
             <div><input type="tel" id="phone" name="phone" placeholder="+37312345678" pattern="[+]{1}[0-9]{11}" required></div>
+            <label>Introdu email-ul:</label>
             <div><input type="email" name="name" autocomplete="off" value="" placeholder="Email" required  /></div>
-            <textarea name="message" rows="4" cols="5">Introdu comentarii</textarea>
-            <div><button class="btn ">Comandă!</button></div>
+            <label>Introdu un comentariu:</label>
+            <textarea
+                    name="description"
+                    id="description"
+                    placeholder="Comentarii"
+            ></textarea>
+            <div><button class="btn" id="save">Comandă!</button></div>
         </form>
     </section>
     <!-- 6 sectiune footer -->

@@ -72,8 +72,9 @@ function calculatePriceEgipt(Data) {
     price = (price + parseInt(selectedHotel.value))*parseInt(selectedNights.value) + parseInt(selectedTransport.value);
     price = calculate(price);
     if (discount == 1) {
-        price = price * 0.95;
-    }
+        price = price * 0.95; }
+
+    price = data(price);
     console.log(price);
     document.getElementById('result').innerHTML = price;
 }
@@ -103,7 +104,7 @@ function calculate(price) {
     console.log(priceAdults);
 
     let input = document.getElementById("myInput").value.split(',');
-    if (input.length != document.getElementById('copii')) {
+    /*if (input.length != document.getElementById('copii')) {
 
     }
     else {
@@ -116,58 +117,32 @@ function calculate(price) {
                 priceKids += price;
             }
         }
+    }*/
+    for (var i = 0; i < input.length; i++) {
+        if (input[i] < 7) {
+            priceKids += 0;
+        } else if (input[i] >= 7 && input[i] <= 12) {
+            priceKids += price / 2;
+        } else {
+            priceKids += price;
+        }
     }
         price = priceAdults + priceKids;
         console.log(price);
     return priceAdults + priceKids;
 }
 
-/*function getInputValue() {
-    input = document.getElementById("myInput").value.split(',');
-    for (i = 0; i < input.length; i++) {
-        vector[i] = parseInt(input[i]);
-    }
-
-}
-
-function Data() {
-    var str = document.getElementById('data').value;
+function data(price) {
+    var str = document.getElementById('date').value;
     var res = str.split("-");
     var months = ["Jan", "Feb", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"];
     var luna = months[res[1]-1];
-    if (luna == "June" || luna == "August" ) {
-        pret = pret + 5;
+    if (luna == "June" || luna == "July" ) {
+        return price * 0.98;
     }
-    console.log(luna);
-} Data();
-
-function nrNopti() {
-    const nr = Number(document.getElementById('nopti').value);
-    pret = pret * nr;
-} nrNopti();
-
-function virsteAdulti() {
-    const n = Number(document.getElementById('adulti').value);
-    pretad = pret * n;
-} virsteAdulti();
-
-function virsteCopii() {
-    for (var i = 0; i < vector.length; i++) {
-        if (vector[i] < 7) {
-            pretcop = pretcop + 0;
-        } else if (vector[i] >= 7 && vector[i] <= 12) {
-            pretcop = pretcop + pret / 2;
-        } else {
-            pretcop = pretcop + pret;
-        }
-    } console.log('pret pentru copii este: ' + pretcop);
-} virsteCopii();
-
-
-/*document.getElementById('calculateBut').addEventListener("click", function(){
-    document.getElementById('result').innerHTML = price;
-});  */
+    return price;
+}
 
 function checkInput(ob) {
     var invalidChars = /[^0-9-,]/gi
@@ -188,3 +163,70 @@ function isNumberKey(evt){
     return true;
 }
 
+
+// form.js
+const formId = "save-later-form"; // ID of the form
+const url = location.href; //  href for the page
+const formIdentifier = `${url} ${formId}`; // Identifier used to identify the form
+const saveButton = document.querySelector("#save"); // select save button
+const alertBox = document.querySelector(".alert"); // select alert display div
+let form = document.querySelector(`#${formId}`); // select form
+let formElements = form.elements; // get the elements in the form
+
+/**
+ * This function gets the values in the form
+ * and returns them as an object with the
+ * [formIdentifier] as the object key
+ * @returns {Object}
+ */
+const getFormData = () => {
+    let data = { [formIdentifier]: {} };
+    for (const element of formElements) {
+        if (element.name.length > 0) {
+            data[formIdentifier][element.name] = element.value;
+        }
+    }
+    return data;
+};
+
+saveButton.onclick = event => {
+    event.preventDefault();
+    data = getFormData();
+    localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+    const message = "Form draft has been saved!";
+    displayAlert(message);
+};
+
+/**
+ * This function displays a message
+ * on the page for 1 second
+ *
+ * @param {String} message
+ */
+const displayAlert = message => {
+    alertBox.innerText = message;
+    alertBox.style.display = "block";
+    setTimeout(function() {
+        alertBox.style.display = "none";
+    }, 1000);
+};
+
+/**
+ * This function populates the form
+ * with data from localStorage
+ *
+ */
+const populateForm = () => {
+    if (localStorage.key(formIdentifier)) {
+        const savedData = JSON.parse(localStorage.getItem(formIdentifier)); // get and parse the saved data from localStorage
+        for (const element of formElements) {
+            if (element.name in savedData) {
+                element.value = savedData[element.name];
+            }
+        }
+        const message = "Form has been refilled with saved data!";
+        displayAlert(message);
+    }
+};
+
+document.onload = populateForm();
