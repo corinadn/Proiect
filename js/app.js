@@ -221,4 +221,9 @@ const displayAlert = message => {
     }, 1000);
 };
 
-
+document.getElementById('calculateBut').addEventListener("click", function(){
+    const a = document.getElementById('tara').value;
+    const b = document.getElementById('ht').value;
+    const c = document.getElementById('trans').value;
+    document.getElementById('comanda').innerHTML = 'Destinatia: '+a+'Hotel: '+b+'Transport:'+c;
+});
