@@ -24,6 +24,7 @@ function loadCountry(country) {
         var opt = document.createElement('option');
         opt.appendChild( document.createTextNode(country1.destination));
         opt.value = country1.id;
+        opt.name = country1.destination;
         sel1.appendChild(opt)
     }
 }
@@ -222,8 +223,11 @@ const displayAlert = message => {
 };
 
 document.getElementById('calculateBut').addEventListener("click", function(){
-    const a = document.getElementById('tara').value;
-    const b = document.getElementById('ht').value;
-    const c = document.getElementById('trans').value;
-    document.getElementById('comanda').innerHTML = 'Destinatia: '+a+'Hotel: '+b+'Transport:'+c;
+    const a = document.getElementById('tara');
+    var text1 = a.options[a.selectedIndex].text;
+    const b = document.getElementById('ht');
+    var text2 = b.options[b.selectedIndex].text;
+    const c = document.getElementById('trans');
+    var text3 = c.options[c.selectedIndex].text;
+    document.getElementById('comanda').innerHTML = 'Destinatia: '+text1+' Hotel: '+text2+' Transport:'+text3;
 });
