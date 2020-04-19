@@ -119,22 +119,7 @@ function calculate(price) {
     let priceAdults = price * Number(document.getElementById('adulti').value);
     let priceKids = 0;
     console.log(priceAdults);
-
     let input = document.getElementById("myInput").value.split(',');
-    /*if (input.length != document.getElementById('copii')) {
-
-    }
-    else {
-        for (var i = 0; i < input.length; i++) {
-            if (input[i] < 7) {
-                priceKids += 0;
-            } else if (input[i] >= 7 && input[i] <= 12) {
-                priceKids += price / 2;
-            } else {
-                priceKids += price;
-            }
-        }
-    }*/
     for (var i = 0; i < input.length; i++) {
         if (input[i] < 7) {
             priceKids += 0;
@@ -224,10 +209,21 @@ const displayAlert = message => {
 
 document.getElementById('calculateBut').addEventListener("click", function(){
     const a = document.getElementById('tara');
-    var text1 = a.options[a.selectedIndex].text;
+    let text1 = a.options[a.selectedIndex].text;
     const b = document.getElementById('ht');
-    var text2 = b.options[b.selectedIndex].text;
+    let text2 = b.options[b.selectedIndex].text;
     const c = document.getElementById('trans');
-    var text3 = c.options[c.selectedIndex].text;
-    document.getElementById('comanda').innerHTML = 'Destinatia: '+text1+' Hotel: '+text2+' Transport:'+text3;
+    let text3 = c.options[c.selectedIndex].text;
+    const text4 = document.getElementById('date').value;
+    const e = document.getElementById('nopti');
+    let text5 = e.options[e.selectedIndex].text;
+    const text6 = document.getElementById('adulti').value;
+    const text7 = document.getElementById('copii').value;
+    const f = document.getElementById('op');
+    let text8 = f.options[f.selectedIndex].text;
+
+    document.getElementById('comanda').innerHTML = "Operator turistic: "+ text8 + "<br/>"+ "Destinatia: " + text1 + "<br/>"+
+        "Hotel: " + text2 + "<br/>"+ "Transport: " + text3 + "<br/>"+ "Data începerii turului: " + text4 + "<br/>"+ "Număr de nopți: "
+        + text5 + "<br/>"+ "Număr adulți: " + text6 + "<br/>"+ "Număr copii: " + text7 + "<br/>";
 });
+
