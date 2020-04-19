@@ -1,5 +1,19 @@
 {
   "base_price_egipt": 0,
+  "country" : [
+    {
+      "id": "1",
+      "destination": "Egipt"
+    },
+    {
+      "id": "2",
+      "destination": "Grecia"
+    },
+    {
+      "id": "3",
+      "destination": "Turcia"
+    }
+  ],
   "operator1": [
     {
       "id": "1",
@@ -33,6 +47,40 @@
       "id": "3",
       "denumire": "FALCON NAAMA STAR HOTEL 3*, 40 euro",
       "plus_pret": 40
+    }
+  ],
+  "hotel2": [
+    {
+      "id": "1",
+      "denumire": "HOTEL DORIAN INN 4*, 70 euro",
+      "plus_pret": 70
+    },
+    {
+      "id": "2",
+      "denumire": "SUITES OF THE GODS 4*, 35 euro",
+      "plus_pret": 100
+    },
+    {
+      "id": "3",
+      "denumire": "MYCHONOS BEACH HOTEL 3*, 60 euro",
+      "plus_pret": 30
+    }
+  ],
+  "hotel3": [
+    {
+      "id": "1",
+      "denumire": "VENUS SUITE 5*, 40 euro",
+      "plus_pret": 40
+    },
+    {
+      "id": "2",
+      "denumire": "GRAND MARCELLO 4*, 35 euro",
+      "plus_pret": 35
+    },
+    {
+      "id": "3",
+      "denumire": "HOTEL PRIVATE-STUDIO 3*, 30 euro",
+      "plus_pret": 30
     }
   ],
   "transport1": [

@@ -245,7 +245,7 @@ header.grid {
   background-size: cover;
   padding-bottom: 20px;}
   .egipt-section .container {
-    grid-template-columns: 1fr 1fr; }
+    grid-template-columns: 1fr; }
     .egipt-section .ready-left {
       padding-top: 40px;
       font-size: 20px;}
@@ -256,11 +256,7 @@ header.grid {
   padding-left: 60px;
   padding-right: 60px; }
 
-.righte {
-  padding-left: 30px;
-  padding-top: 10px;
-  padding-right: 30px;
-  padding-bottom: 30px; } 
+
 
 #egiptimg {
   max-height: 340px;

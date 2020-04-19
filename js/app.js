@@ -1,8 +1,9 @@
 vector = [];
-
+/* asdfg*/
 fetch('json/data.json')
     .then(response => response.json())
     .then(Data => {
+        loadCountry(Data.country);
         loadOperatorEgipt(Data.operator1);
         loadHotelEgipt(Data.hotel1);
         loadTransportEgipt(Data.transport1);
@@ -12,17 +13,27 @@ fetch('json/data.json')
     });
 
 
-const sel = document.getElementById('op');
-const select = document.getElementById('ht');
-const selects = document.getElementById('trans');
-const selected = document.getElementById('nopti');
+const sel1 = document.getElementById('tara');
+const sel2 = document.getElementById('op');
+const sel3 = document.getElementById('ht');
+const sel4 = document.getElementById('trans');
+const sel5 = document.getElementById('nopti');
+
+function loadCountry(country) {
+    for (let country1 of country) {
+        var opt = document.createElement('option');
+        opt.appendChild( document.createTextNode(country1.destination));
+        opt.value = country1.id;
+        sel1.appendChild(opt)
+    }
+}
 
 function loadOperatorEgipt(operator1) {
     for (let operator of operator1) {
         var opt = document.createElement('option');
         opt.appendChild( document.createTextNode(operator.name));
         opt.value = operator.sale;
-        sel.appendChild(opt)
+        sel2.appendChild(opt)
     }
 }
 /*function loadOperatorEgipt(operator1){
@@ -40,7 +51,7 @@ function loadHotelEgipt(hotel1) {
         var opt = document.createElement('option');
         opt.appendChild( document.createTextNode(hotel.denumire));
         opt.value = hotel.plus_pret;
-        select.appendChild(opt)
+        sel3.appendChild(opt)
     }
 }
 
@@ -49,7 +60,7 @@ function loadTransportEgipt(transport1) {
         var opt = document.createElement('option');
         opt.appendChild( document.createTextNode(transport.tip));
         opt.value = transport.plus_pret;
-        selects.appendChild(opt)
+        sel4.appendChild(opt)
     }
 }
 
@@ -58,7 +69,7 @@ function loadNights(nights) {
         var opt = document.createElement('option');
         opt.appendChild( document.createTextNode(nr));
         opt.value = nr;
-        selected.appendChild(opt)
+        sel5.appendChild(opt)
     }
 }
 
@@ -77,13 +88,18 @@ function calculatePriceEgipt(Data) {
     price = data(price);
     console.log(price);
     document.getElementById('result').innerHTML = price;
+
 }
 
 function changeOption(Data) {
+    let selectedCountry = document.getElementById('tara');
     let selectedOperator = document.getElementById('op');
     let selectedHotel = document.getElementById('ht');
     let selectedTransport = document.getElementById('trans');
     let selectedNights = document.getElementById('nopti');
+    selectedCountry.addEventListener('change', function(){
+        calculatePriceEgipt(Data);
+    });
     selectedOperator.addEventListener('change', function(){
         calculatePriceEgipt(Data);
     });
@@ -193,16 +209,10 @@ saveButton.onclick = event => {
     event.preventDefault();
     data = getFormData();
     localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
-    const message = "Form draft has been saved!";
+    const message = "Datele au fost trimise!";
     displayAlert(message);
 };
 
-/**
- * This function displays a message
- * on the page for 1 second
- *
- * @param {String} message
- */
 const displayAlert = message => {
     alertBox.innerText = message;
     alertBox.style.display = "block";
@@ -211,22 +221,4 @@ const displayAlert = message => {
     }, 1000);
 };
 
-/**
- * This function populates the form
- * with data from localStorage
- *
- */
-const populateForm = () => {
-    if (localStorage.key(formIdentifier)) {
-        const savedData = JSON.parse(localStorage.getItem(formIdentifier)); // get and parse the saved data from localStorage
-        for (const element of formElements) {
-            if (element.name in savedData) {
-                element.value = savedData[element.name];
-            }
-        }
-        const message = "Form has been refilled with saved data!";
-        displayAlert(message);
-    }
-};
 
-document.onload = populateForm();
